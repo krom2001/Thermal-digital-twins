@@ -1,5 +1,5 @@
 %read file
-[numSensors, numTimeSteps, data] = fileReader();     %comment out for speed once data uploaded
+%[numSensors, numTimeSteps, data] = fileReader();     %comment out for speed once data uploaded
 clear B;
 clear A;
 

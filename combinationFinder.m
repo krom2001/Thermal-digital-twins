@@ -1,4 +1,4 @@
-function [combinations, testrel] = combinationFinder(tempwindow, threshold, uniformcases, absnet, net, net2, net3, net4)
+function [combinations, testrel, testabs] = combinationFinder(tempwindow, threshold, uniformcases, absnet, net, net2, net3, net4)
     %identifies combination and confidence level
     %tempwindow must contain first timestep since this is required for absnet to work
     clear possibleMinRadius;
@@ -24,6 +24,7 @@ function [combinations, testrel] = combinationFinder(tempwindow, threshold, unif
 
     %find possible effective radii
     effectiveradius = absnet([score1, score2, score3, score4, score5, range(1)]');
+    [~, testabs] = max(effectiveradius);
     numMinRadius = 0;
     for cell = 1:numel(effectiveradius)
         if effectiveradius(cell)>threshold
