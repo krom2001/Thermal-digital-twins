@@ -14,12 +14,13 @@ fileNumber = 4932;              %the number of the temperature data file from "5
 
 %radius prediction
 %combinationFinder() takes the required number of data points from the required file and predicts its radii combination
+%first time step contains invalid temperatures
 [prediction, ~, ~] = combinationFinder(data{fileNumber}(:, 2:window+1), thresholdProbability, uniformcases, absnet, net, net2, net3, net4);
 
 %numtocomb() converts the file number into the actual radii used in the file
 actual = numtocomb(fileNumber);
 
-%displays the predicted likely radii combinations (mm) and their confidence levels (from 0-1)
+%displays the predicted likely radii combinations (mm) and their softmax score
 prediction(:, 1:5) = prediction(:, 1:5)*10;
 disp('Predictions')
 disp(prediction)
