@@ -22,6 +22,13 @@ function [combinations, testrel, testabs] = combinationFinder(tempwindow, thresh
     score3 = mean(abs(tempwindow(3, :) - tempwindow(4, :))./range)/uniformcases(3, 4);
     score4 = mean(abs(tempwindow(4, :) - tempwindow(5, :))./range)/uniformcases(3, 5);
     score5 = mean(abs(tempwindow(5, :) - tempwindow(6, :))./range)/uniformcases(3, 6);
+    %Normalisation by uniformcases is not strictly required since neural
+    %networks can be trained to work with scores which have not been
+    %divided by uniformcases, with no loss of accuracy.
+    %Normalising by uniformcases makes the scores easier to intepret for
+    %people, size scores less than 1 show that the temperature difference
+    %is smaller than expected of a uniform beam, and scores greater than 1
+    %suggest the temperature difference is greater than expected.
 
     %find possible effective radii
     effectiveradius = absnet([score1, score2, score3, score4, score5, range(1)]');
@@ -81,6 +88,7 @@ function [combinations, testrel, testabs] = combinationFinder(tempwindow, thresh
             for cell4 = 1:num2Radius
                 for cell5 = 1:num3Radius
                     for cell6 = 1:num4Radius
+                        %calculate radii combination from the effective radius and relative radii
                         combinations(numCombinations, 1:5) = [-possible1Radius(cell3), -possible2Radius(cell4), -possible3Radius(cell5), -possible4Radius(cell6), 0];
                         difference = possibleMinRadius(cell1) - min(combinations(numCombinations, 1:5));
                         combinations(numCombinations, 1:5) = combinations(numCombinations, 1:5) + ones(1, 5)*difference;
