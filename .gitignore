@@ -6,8 +6,13 @@ save_net/net.mat
 save_net/net2.mat
 save_net/net3.mat
 save_net/net4.mat
-save_net/noise_effect.fig
+save_net/pcanet.mat
+save_net/pcanet2.mat
+save_net/pcanet3.mat
+save_net/pcanet4.mat
+save_net/sensor_LSTM_lite.mat
 save_net/uniformcases.mat
+figures/*
 
 
 

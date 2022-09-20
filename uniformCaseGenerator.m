@@ -1,5 +1,5 @@
-%upload files
-%[numSensors, numTimeSteps, data] = fileReader();      %on/off for speed
+%load files
+load("save_net\data.mat")
 
 uniformcases = zeros(6, 6);
 
@@ -11,9 +11,9 @@ for j = 1:6
 end
 
 %save uniformcases                         %save on/off
-%outputDir = "save_net\";
-%name = "uniformcases.mat";
-%outputFile = fullfile(outputDir, name);
-%save(outputFile);
+outputDir = "save_net\";
+name = "uniformcases.mat";
+outputFile = fullfile(outputDir, name);
+save(outputFile);
 
 disp(uniformcases)

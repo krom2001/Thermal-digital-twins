@@ -1,6 +1,5 @@
-function [numSensors, numTimeSteps, data] = fileReader()
+function [numSensors, numTimeSteps, data] = fileReader(path_directory)
     %uploads .csv data to matlab
-    path_directory= "5_seg_beam_csv/"; 
     name_list = sprintf('%s/*.csv', path_directory);
     original_files=dir(name_list);
     table_number = length(original_files);
@@ -17,6 +16,12 @@ function [numSensors, numTimeSteps, data] = fileReader()
     %extract array dimensions
     numSensors = size(data{1},1);
     numTimeSteps = size(data{1},2);
+    
+    %save the data.mat file
+    outputDir = "save_net";
+    outputFile = fullfile(outputDir, "data.mat");
+    save(outputFile);
+
 end
 
 

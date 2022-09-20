@@ -1,5 +1,6 @@
-%read file
-%[numSensors, numTimeSteps, data] = fileReader();         %comment out for speed once data uploaded
+%load files
+load("save_net\data.mat")
+load("save_net\uniformcases.mat");
 clear Y;
 clear correctlist;
 clear errorlist;
@@ -15,8 +16,10 @@ Y1 = zeros(11, numel(data));
 Y2 = zeros(11, numel(data));
 Y3 = zeros(11, numel(data));
 Y4 = zeros(11, numel(data));
-load("save_net\uniformcases.mat");
 
+
+%save true differences in element radii for training cases as well as the
+%scores and the minimum radius of each of the cases
 %split cases 1
 truediff1 = zeros(1, numel(data));
 for ind = 1:numel(data)
@@ -94,29 +97,24 @@ net4 = configure(net4,X4);
 [net4,~] = train(net4,X4,Y4);
 
 %save net                                           %save net on/off
-%outputDir = "save_net";
-%outputFile = fullfile(outputDir, "net.mat");
-%save(outputFile);
+outputDir = "save_net";
+outputFile = fullfile(outputDir, "net.mat");
+save(outputFile);
 
 %save net                                           %save net on/off
-%outputDir = "save_net";
-%outputFile = fullfile(outputDir, "net2.mat");
-%save(outputFile);
+outputDir = "save_net";
+outputFile = fullfile(outputDir, "net2.mat");
+save(outputFile);
 
 %save net                                           %save net on/off
-%outputDir = "save_net";
-%outputFile = fullfile(outputDir, "net3.mat");
-%save(outputFile);
+outputDir = "save_net";
+outputFile = fullfile(outputDir, "net3.mat");
+save(outputFile);
 
 %save net                                           %save net on/off
-%outputDir = "save_net";
-%outputFile = fullfile(outputDir, "net4.mat");
-%save(outputFile);
-
-%save net                                           %save net on/off
-%outputDir = "save_net";
-%outputFile = fullfile(outputDir, "bignet.mat");
-%save(outputFile);
+outputDir = "save_net";
+outputFile = fullfile(outputDir, "net4.mat");
+save(outputFile);
 
 disp('Training complete')
 
@@ -126,7 +124,7 @@ disp('Training complete')
 %load("save_net\net3.mat");
 %load("save_net\net4.mat");
 
-
+%print error histograms for each of the radii difference predictions
 error1 = zeros(numel(data), 1);
 y1 = net(X3);                 %validate 1
 for idx = 1:numel(data)
