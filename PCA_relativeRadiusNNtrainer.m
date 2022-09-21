@@ -136,11 +136,6 @@ outputDir = "save_net";
 outputFile = fullfile(outputDir, "pcanet4.mat");
 save(outputFile);
 
-%save net                                           %save net on/off
-%outputDir = "save_net";
-%outputFile = fullfile(outputDir, "bignet.mat");
-%save(outputFile);
-
 disp('Training complete')
 
 %load nets                                 %load net on/off

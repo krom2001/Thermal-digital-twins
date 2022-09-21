@@ -66,6 +66,14 @@ for j = 1:11
     results(j) = counter;
 end
 
+%plot a histogram of the errors for the 1st noise level
+%0th level - no noise, 10th level - highest noise
+%select noise level with 'noiseLevel'
+noiseLevel = 1;
+histogram(errors(:, noiseLevel+1)*10)
+title(sprintf('Histogram of prediction errors for noise level %s', num2str(netnumber)));
+xlabel('Error')
+ylabel('Frequency')
 
 
 

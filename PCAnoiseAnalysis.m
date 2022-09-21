@@ -91,6 +91,15 @@ end
 disp(overallnoise);
 disp(results);
 
+%plot a histogram of the errors for the pcanet3 for the 1st noise level
+%0th level - no noise, 10th level - highest noise
+%select noise level with 'noiseLevel' and the neural network with netnumber
+netnumber = 3;
+noiseLevel = 1;
+histogram(errors(:, 4*noiseLevel + netnumber)*10)
+title(sprintf('Histogram of prediction errors for net %s', num2str(netnumber)));
+xlabel('Error')
+ylabel('Frequency')
 
 
 

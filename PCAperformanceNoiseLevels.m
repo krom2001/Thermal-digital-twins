@@ -1,6 +1,6 @@
 %noise settings
 window = 499;
-thresholdProbability = 0.3;
+thresholdProbability = 0.2;
 
 %generate brownian noise
 clear true;

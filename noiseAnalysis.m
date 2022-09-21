@@ -5,6 +5,7 @@ load("save_net\net.mat");
 load("save_net\net2.mat");
 load("save_net\net3.mat");
 load("save_net\net4.mat");
+clear true;
 
 %noise settings
 window = 20;
@@ -96,6 +97,16 @@ end
 
 disp(overallnoise);
 disp(results);
+
+%plot a histogram of the errors for the net3 for the 1st noise level
+%0th level - no noise, 10th level - highest noise
+%select noise level with 'noiseLevel' and the neural network with netnumber
+netnumber = 3;
+noiseLevel = 1;
+histogram(errors(:, 4*noiseLevel + (5-netnumber))*10)
+title(sprintf('Histogram of prediction errors for net %s', num2str(netnumber)));
+xlabel('Error')
+ylabel('Frequency')
 
 
 

@@ -12,7 +12,20 @@ save_net/pcanet3.mat
 save_net/pcanet4.mat
 save_net/sensor_LSTM_lite.mat
 save_net/uniformcases.mat
-figures/*
+save_net(v2)/absnet.mat
+save_net(v2)/data.mat
+save_net(v2)/extradata.mat
+save_net(v2)/extradataAnswers.mat
+save_net(v2)/net.mat
+save_net(v2)/net2.mat
+save_net(v2)/net3.mat
+save_net(v2)/net4.mat
+save_net(v2)/pcanet.mat
+save_net(v2)/pcanet2.mat
+save_net(v2)/pcanet3.mat
+save_net(v2)/pcanet4.mat
+save_net(v2)/sensor_LSTM_lite.mat
+save_net(v2)/uniformcases.mat
 
 
 

@@ -1,5 +1,6 @@
-%NOTE: type "shuffle = randi([1, 7776], 1, 300)" before running this code
-%to generate a list of 300 random files to run this code for
+%generate a random selection of 300 file numbers from 1 to 7776 to
+%calculate the root mean sqaured error for
+shuffle = randi([1, 7776], 1, 300);
 
 %load data
 load("save_net\data.mat") 
