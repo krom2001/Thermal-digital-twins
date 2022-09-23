@@ -42,17 +42,17 @@ options = trainingOptions("adam", ...
     Verbose=0);
 
 %train network
-net = trainNetwork(XTrain,TTrain,layers,options);       %train net on/off
+%net = trainNetwork(XTrain,TTrain,layers,options);       %train net on/off
 
 %save net                                           %save net on/off
-sensor_LSTM_lite = net;
-outputDir = "save_net";
-outputFile = fullfile(outputDir, "sensor_LSTM_lite.mat");
-save(outputFile);
+%sensor_LSTM_lite = net;
+%outputDir = "save_net";
+%outputFile = fullfile(outputDir, "sensor_LSTM_lite.mat");
+%save(outputFile);
 
 %load network                                   %load net on/off
-%load("save_net\sensor_LSTM_lite.mat");
-%net = sensor_LSTM_lite;
+load("save_net\sensor_LSTM_lite.mat");
+net = sensor_LSTM_lite;
 
 %Select data file number to run by setting idx:
 idx = 7333;
